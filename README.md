@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Simple Trello (Task Board)
 
-## Getting Started
+複数人でタスクを共有できる、Trello の簡易版のようなシンプルなタスク管理アプリです。
 
-First, run the development server:
+### 機能（必須）
+
+- タスクの作成・編集・削除
+- タスクの状態管理（ToDo / Doing / Done）
+- ドラッグ＆ドロップで移動（並び替え含む）
+- 担当者・期限の設定
+- プロジェクトへのメンバー招待（招待コード / 招待リンク）
+
+### 非機能/補足
+
+- ログイン無しの簡易版です（ブラウザごとにメンバーIDをLocalStorageに保存します）
+- DBはSQLite（`dev.db`）です
+
+## セットアップ
 
 ```bash
+npm install
+npx prisma migrate dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` を開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 使い方
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 新規作成
 
-## Learn More
+1. トップページで「あなたの名前」と「プロジェクト名」を入力
+2. 作成後、右上に表示される「招待コード / 招待リンク」を共有
 
-To learn more about Next.js, take a look at the following resources:
+### 参加
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 招待コードを入力して参加、または招待リンク（`/join?code=...`）を開く
+2. 「あなたの名前」を入力して参加
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
