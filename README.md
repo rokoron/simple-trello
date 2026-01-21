@@ -13,13 +13,14 @@
 ### 非機能/補足
 
 - ログイン無しの簡易版です（ブラウザごとにメンバーIDをLocalStorageに保存します）
-- DBはSQLite（`dev.db`）です
+- DBはPostgres（Neon等）を想定します（Vercelで永続利用できるため）
 
 ## セットアップ
 
 ```bash
 npm install
-npx prisma migrate dev
+# DATABASE_URL を設定してから
+npx prisma migrate deploy
 npm run dev
 ```
 
